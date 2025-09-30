@@ -21,6 +21,7 @@
 | email  | EmailStr | 사용자 이메일 |
 | name   | str      | 사용자 이름 |
 
+UserResponse 이미 정의됨 → /users/me에서도 같은 스키마 사용.
 ---
 
 ## 🔹 LoginRequest

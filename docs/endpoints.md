@@ -59,3 +59,18 @@
   "detail": "이메일 또는 비밀번호가 올바르지 않습니다"
 }
 ```
+
+## 3. User API
+### `GET /users/me`
+- 설명: 로그인한 사용자의 정보를 반환.
+- 인증: `Authorization: Bearer <idToken>` 필요
+- Response 예시:
+  ```json
+  {
+    "uid": "abc123",
+    "email": "user@example.com",
+    "name": "홍길동"
+  }
+  ```
+
+
