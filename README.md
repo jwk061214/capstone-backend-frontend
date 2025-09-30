@@ -34,7 +34,7 @@ uvicorn app.main:app --reload
 API 문서: http://127.0.0.1:8000/docs
 ```
 
-Frontend (Next.js)
+### Frontend (Next.js)
 ```bash
 cd frontend
 npm install
