@@ -1,9 +1,13 @@
 from fastapi import APIRouter, HTTPException
 from firebase_admin import auth
+import requests
+import os
+from app.schemas import UserCreate, UserResponse, LoginRequest, LoginResponse
 from app.firebase_config import db
-from app.schemas import UserCreate, UserResponse
 import datetime
+from dotenv import load_dotenv
 
+load_dotenv()
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
 @router.post("/register", response_model=UserResponse)
@@ -31,3 +35,35 @@ def register(user: UserCreate):
         raise HTTPException(status_code=400, detail="이미 존재하는 이메일")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"회원가입 실패: {str(e)}")
+    
+@router.post("/login", response_model=LoginResponse)
+def login(user: LoginRequest):
+    try:
+        # Firebase REST API를 통한 로그인
+        api_key = os.getenv("FIREBASE_WEB_API_KEY")
+        url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={api_key}"
+
+        payload = {
+            "email": user.email,
+            "password": user.password,
+            "returnSecureToken": True
+        }
+
+        response = requests.post(url, json=payload)
+        if response.status_code != 200:
+            raise HTTPException(status_code=401, detail="이메일 또는 비밀번호가 올바르지 않습니다")
+
+        data = response.json()
+
+        # Firestore에 last_login 갱신
+        db.collection("users").document(data["localId"]).update({
+            "last_login": datetime.datetime.utcnow()
+        })
+
+        return LoginResponse(
+            access_token=data["idToken"],
+            expires_in=int(data["expiresIn"])
+        )
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"로그인 실패: {str(e)}")
