@@ -5,7 +5,7 @@
 
 ---
 
-## 🔹 전체 구조
+## 전체 구조
 ```bash
 firestore-root
 ├── users/ (사용자 정보)
@@ -26,3 +26,16 @@ firestore-root
                 ├── content: string (본문)
                 └── timestamp: timestamp
 ```
+## users 컬렉션
+- 경로: `users/{uid}`
+
+| 필드명      | 타입       | 설명 |
+|-------------|------------|------|
+| email       | string     | 사용자 이메일 |
+| name        | string     | 사용자 이름 |
+| role        | string     | 기본값 `"user"` |
+| created_at  | timestamp  | 계정 생성 시간 |
+| last_login  | timestamp  | 마지막 로그인 시간 |
+
+✅ 회원가입 시 `created_at` 저장  
+✅ 로그인 성공 시 `last_login` 갱신
