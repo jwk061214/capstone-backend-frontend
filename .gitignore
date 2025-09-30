@@ -1,0 +1,37 @@
+# Ignore files
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+
+# --- Virtual Environment ---
+venv/
+.env/
+.venv/
+env/
+
+# --- OS & Editor ---
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# --- Test & Coverage ---
+.coverage
+.pytest_cache/
+htmlcov/
+
+# --- Firebase Credentials (민감정보) ---
+serviceAccountKey.json
+
+# --- Node.js (추후 프론트엔드) ---
+node_modules/
+npm-debug.log
+yarn-error.log
+.next/
+dist/
