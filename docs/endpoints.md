@@ -1,4 +1,4 @@
-```markdown
+
 # 🌐 API Endpoints
 엔드포인트(API 명세)
 ## 1. 기본 엔드포인트
@@ -12,4 +12,3 @@
   - Request: `UserCreate`
   - Response: `UserResponse`
   - Error Codes: 400 (중복 이메일), 500 (서버 오류)
-  ```
