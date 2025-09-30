@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from app.firebase_config import db
 from datetime import datetime
+from app.routers import auth
 
 app = FastAPI()
 
@@ -21,3 +22,6 @@ def test_firebase():
         "time": datetime.utcnow()
     })
     return {"status": "ok"}
+
+# 라우터 등록
+app.include_router(auth.router)
