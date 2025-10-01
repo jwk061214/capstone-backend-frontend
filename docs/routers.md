@@ -23,3 +23,11 @@
 - 경로: `/admin`
 - 기능:
   - `GET /admin/users` : 전체 사용자 목록 / 관리자(role = admin)만 접근 가능
+## Chats Router
+- 경로: `/chats`
+- 기능:
+  - `POST /chats/` → 대화방 생성
+  - `GET /chats/` → 내 대화방 목록 조회
+  - `POST /chats/{chat_id}/messages` → 메시지 추가
+  - `GET /chats/{chat_id}/messages` → 메시지 조회
+  - `DELETE /chats/{chat_id}` → 대화방 삭제

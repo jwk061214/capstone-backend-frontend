@@ -34,7 +34,7 @@
 }
 ```
 ### 회원가입 (Login)
-- **URL: POST /auth/login**
+**URL**: `POST /auth/login`
 
 - **Request Body**
 ```json
@@ -61,10 +61,10 @@
 ```
 
 ## 3. 사용자 (User API)
-### `GET /users/me`
+**URL**: `GET /users/me`
 - 설명: 로그인한 사용자의 정보를 반환.
 - 인증: `Authorization: Bearer <idToken>` 필요
-- Response 예시:
+- **Request Body**
   ```json
   {
     "uid": "abc123",
@@ -74,9 +74,8 @@
   ```
 
 ## 4. 관리자 (Admin API)
-전체 사용자 조회 (GET /admin/users)
-
-- URL: GET /admin/users
+### 전체 사용자 조회 (GET /admin/users)
+**URL**: `GET /admin/users`
 - 설명: Firestore users 컬렉션에서 모든 사용자 정보를 반환
 - 권한: role이 "admin"인 사용자만 접근 가능
 
@@ -115,3 +114,68 @@
   }
 ```
 
+## 4. 채팅 (Chats API)
+### 대화방 생성
+**URL**: `POST /chats/`
+- 인증 필요
+- **Request Body**
+  ```json
+  "title": "첫 번째 대화방"
+  ```
+- **Response Body**
+  ```json
+  {
+    "chat_id": "b3f5b0e6-0f57-4b39-9c55-6f8c80b9e0b1",
+    "user_id": "u8XoyN...",
+    "title": "첫 번째 대화방",
+    "created_at": "2025-10-01T13:00:00Z"
+  }
+  ```
+### 내 대화방 목록 조회
+**URL**: `GET /chats/`
+  ```json
+  [
+  {
+    "chat_id": "b3f5b0e6-0f57-4b39-9c55-6f8c80b9e0b1",
+    "user_id": "u8XoyN...",
+    "title": "첫 번째 대화방",
+    "created_at": "2025-10-01T13:00:00Z"
+  }
+  ]
+  ```
+
+### 메세지 추가
+**URL**: `POST /chats/{chat_id}/messages`
+- **Request Body**
+  ```json
+  "role": "user",
+  "content": "안녕!""
+  ```
+- **Response Body**
+  ```json
+  {
+    "message_id": "2d1b6b9d-bae1-4dcb-9a29-b91cfa22d7c3",
+    "role": "user",
+    "content": "안녕!",
+    "timestamp": "2025-10-01T13:01:00Z"
+  }
+  ```
+### 메세지 조회
+**URL**: `GET /chats/{chat_id}/messages`
+- **Response Body**
+  ```json
+  {
+    "message_id": "2d1b6b9d-bae1-4dcb-9a29-b91cfa22d7c3",
+    "role": "user",
+    "content": "안녕!",
+    "timestamp": "2025-10-01T13:01:00Z"
+  }
+  ```
+### 메세지 삭제
+**URL**: `DELETE /chats/{chat_id}`
+- **Response Body**
+  ```json
+  {
+    "detail": "채팅방이 삭제되었습니다."
+  }
+  ```

@@ -38,3 +38,23 @@ UserResponse 이미 정의됨 → /users/me에서도 같은 스키마 사용.
 | access_token | str  | Firebase에서 발급한 JWT |
 | token_type   | str  | 토큰 유형 (bearer) |
 | expires_in   | int  | 토큰 만료 시간 (초 단위) |
+
+---
+
+## 🔹 Chat
+| 필드명     | 타입      | 설명 |
+|------------|-----------|------|
+| chat_id    | string    | 대화방 고유 ID |
+| user_id    | string    | 사용자 UID |
+| title      | string    | 대화방 제목 |
+| created_at | timestamp | 생성 시간 |
+
+---
+
+## 🔹 Message
+| 필드명     | 타입      | 설명 |
+|------------|-----------|------|
+| message_id | string    | 메시지 고유 ID |
+| role       | string    | 발화자 (`user`/`assistant`) |
+| content    | string    | 메시지 본문 |
+| timestamp  | timestamp | 생성 시간 |

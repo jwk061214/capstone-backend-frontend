@@ -48,20 +48,20 @@ firestore-root
 ---
 ## chats 컬렉션
 - 경로: `chats/{chat_id}`
-| 필드명      | 타입        | 설명           |
-|-------------|-------------|----------------|
+
+
+| 필드명      | 타입        | 설명                                         |
+|-------------|-------------|----------------------------------------------|
 | chat_id     | string      | 대화 고유 ID   |
 | user_id     | string      | 대화 생성자 UID |
 | title       | string      | 대화 제목      |
 | created_at  | timestamp   | 대화 시작 시간 |
-
 ### messages (subcollection)
 - 경로: `chats/{chat_id}/messages/{message_id}`
-| 필드명      | 타입        | 설명                                 |
-|-------------|-------------|--------------------------------------|
+
+| 필드명      | 타입        | 설명                                         |
+|-------------|-------------|----------------------------------------------|
 | message_id  | string      | 메시지 고유 ID                       |
 | role        | string      | 발화자 구분 (`"user"` or `"assistant"`) |
 | content     | string      | 메시지 본문                          |
 | timestamp   | timestamp   | 메시지 생성 시간                      |
-
-
