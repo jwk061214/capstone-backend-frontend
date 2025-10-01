@@ -60,7 +60,7 @@
 }
 ```
 
-## 3. User API
+## 3. 사용자 (User API)
 ### `GET /users/me`
 - 설명: 로그인한 사용자의 정보를 반환.
 - 인증: `Authorization: Bearer <idToken>` 필요
@@ -73,4 +73,45 @@
   }
   ```
 
+## 4. 관리자 (Admin API)
+전체 사용자 조회 (GET /admin/users)
+
+- URL: GET /admin/users
+- 설명: Firestore users 컬렉션에서 모든 사용자 정보를 반환
+- 권한: role이 "admin"인 사용자만 접근 가능
+
+- **Request Body**
+  ```json
+  curl -X GET "http://127.0.0.1:8000/admin/users" \
+    -H "Authorization: Bearer <ADMIN_ACCESS_TOKEN>"
+  ```
+- **Response Body**
+  ```json
+  {
+    "users": [
+      {
+        "uid": "abc123",
+        "email": "user@example.com",
+        "name": "홍길동",
+        "role": "user",
+        "created_at": "2025-10-01T12:20:54Z",
+        "last_login": "2025-10-01T12:54:15Z"
+      },
+      {
+        "uid": "def456",
+        "email": "admin@example.com",
+        "name": "관리자",
+        "role": "admin",
+        "created_at": "2025-10-01T12:41:26Z",
+        "last_login": "2025-10-01T12:59:00Z"
+      }
+    ]
+  }
+  ```
+- **Error Response** 
+```json
+  {
+    "detail": "관리자 권한이 필요합니다"
+  }
+```
 

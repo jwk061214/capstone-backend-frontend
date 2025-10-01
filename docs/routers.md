@@ -1,7 +1,6 @@
 # 📌 Routers 정의
 
-현재 구현된 라우터: **Auth Router**,  **User Router**
-
+현재 구현된 라우터는 Auth Router, User Router, Admin Router입니다.
 ---
 
 ## Auth Router
@@ -19,3 +18,8 @@
 - 경로: `/users`
 - 기능:
   - `GET /users/me` : JWT 토큰 검증 후 현재 사용자 정보 반환
+
+## Admin Router
+- 경로: `/admin`
+- 기능:
+  - `GET /admin/users` : 전체 사용자 목록 / 관리자(role = admin)만 접근 가능

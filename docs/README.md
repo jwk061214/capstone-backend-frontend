@@ -1,6 +1,10 @@
-## 📄 문서 목록
+# 📖 프로젝트 백엔드 문서
 
-- [Firestore 구조 설계](firestore_structure.md)
-- [Schemas (데이터 검증)](./schemas.md)
-- [Endpoints (API 명세)](./endpoints.md)
-- [Routers (라우터 구조)](./routers.md)
+본 문서는 FastAPI + Firebase 기반 **Legal AI 백엔드**의 구조와 기능을 정리한 것이다.  
+
+## 문서 목록
+- [Schemas](schemas.md)
+- [API Endpoints](endpoints.md)
+- [Routers](routers.md)
+- [Firestore Structure](firestore_structure.md)
+- [Auth Flow](auth_flow.md)
