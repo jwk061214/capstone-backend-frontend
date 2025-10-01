@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from app.firebase_config import db
 from datetime import datetime
-from app.routers import auth, users, admin
+from app.routers import auth, users, admin, chats;
 
 app = FastAPI()
 
@@ -27,3 +27,4 @@ def test_firebase():
 app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(admin.router)
+app.include_router(chats.router)
