@@ -116,6 +116,14 @@
 
 ## 4. 채팅 (Chats API)
 ### 대화방 생성
+| 기능         | Method   | URL                         |
+| ---------- | -------- | --------------------------- |
+| 대화방 생성     | `POST`   | `/chats/`                   |
+| 내 대화 목록 조회 | `GET`    | `/chats/`                   |
+| 메시지 추가     | `POST`   | `/chats/{chat_id}/messages` |
+| 메시지 조회     | `GET`    | `/chats/{chat_id}/messages` |
+| 대화방 삭제     | `DELETE` | `/chats/{chat_id}`          |
+
 **URL**: `POST /chats/`
 - 인증 필요
 - **Request Body**
