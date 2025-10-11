@@ -47,11 +47,3 @@ def root():
     """
     return {"message": "Legal AI Backend is running 🚀", "status": "ok"}
 
-
-@app.get("/health", tags=["System"])
-def health_check():
-    """
-    🩺 서버 헬스체크 엔드포인트
-    - CI/CD 또는 모니터링 툴에서 주기적으로 호출
-    """
-    return {"status": "healthy", "uptime": "running"}

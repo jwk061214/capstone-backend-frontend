@@ -1,0 +1,127 @@
+.sidebar {
+  width: 300px;
+  background: #0d0d0f;
+  border-right: 1px solid #1e1e20;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #b4c8ff;
+}
+
+.new-btn {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.2s;
+}
+
+.new-btn:hover {
+  opacity: 0.9;
+}
+
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-card {
+  background: #141416;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chat-card:hover {
+  background: #1a1a1c;
+}
+
+.chat-card.active {
+  border: 1px solid #4a90e2;
+  background: #1b1c1f;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-title {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.chat-preview {
+  color: #888;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.delete-icon,
+.edit-icon {
+  color: #777;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-icon:hover {
+  color: #e66;
+}
+
+.edit-icon:hover {
+  color: #aaa;
+}
+
+.chat-edit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edit-input {
+  flex: 1;
+  background: #202024;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+.check-icon {
+  color: #4a90e2;
+  cursor: pointer;
+}
+
+.empty {
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
+}

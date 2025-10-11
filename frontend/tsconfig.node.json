@@ -1,26 +1,31 @@
 {
   "compilerOptions": {
+    /* === ⚙️ 기본 빌드 설정 === */
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2023",
     "lib": ["ES2023"],
     "module": "ESNext",
-    "types": [],
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
     "noEmit": true,
 
-    /* Linting */
+    /* === ⚙️ Node/Vite 환경 === */
+    "moduleResolution": "node",               // ✅ bundler → node 로 변경 (Vite config는 Node에서 실행)
+    "resolveJsonModule": true,                // ✅ JSON import 허용
+    "esModuleInterop": true,                  // ✅ import/export 호환성 확보
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "vite/client"],         // ✅ Node 전역객체(fs, path 등) 인식 + Vite 환경 변수 지원
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* === ⚙️ 코드 품질 검사 === */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUnusedLocals": false,                  // ❗ config 파일은 예외적으로 유연하게 둠
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts"]
+
+  /* === 📁 포함할 파일 === */
+  "include": ["vite.config.ts", "scripts", "config"],
+  "exclude": ["node_modules", "dist"]
 }

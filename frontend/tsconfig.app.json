@@ -1,28 +1,42 @@
 {
   "compilerOptions": {
+    /* === ⚙️ 빌드 관련 === */
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
-    "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
+    "useDefineForClassFields": true,
     "skipLibCheck": true,
+    "noEmit": true,
 
-    /* Bundler mode */
+    /* === ⚙️ React + Vite 환경 === */
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "types": ["vite/client", "node", "react", "react-dom"],
 
-    /* Linting */
+    /* === ⚙️ 코드 품질 검사 === */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    /* === ⚙️ 경로 Alias 설정 === */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": ["src"]
+
+  /* === 📁 포함할 경로 === */
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
